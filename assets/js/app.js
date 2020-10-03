@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
                 } )
                 .then( data => {
                     const { temperature, summary, icon } = data.currently
-                    temperatureDegree.textContent = temperature
+                    temperatureDegree.innerHTML = `${temperature}<sup><span>&deg;</span></sup>`;
                     temperatureDescription.textContent = summary
                     locationTimezone.textContent = data.timezone;
 
@@ -34,10 +34,10 @@ window.addEventListener('load', () => {
                     temperatureSection.addEventListener('click', () => {
                         if( temperatureSpan.textContent === "F" ) {
                             temperatureSpan.textContent = "C"
-                            temperatureDegree.textContent = Math.floor(celcius)
+                            temperatureDegree.innerHTML = `${Math.floor(celcius)}<sup><span>&deg;</span></sup>`
                         } else {
                             temperatureSpan.textContent = "F"
-                            temperatureDegree.textContent = temperature
+                            temperatureDegree.innerHTML = `${temperature}<sup><span>&deg;</span></sup>`; 
                         }
                     })
 
